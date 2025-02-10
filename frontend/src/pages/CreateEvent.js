@@ -9,22 +9,30 @@ const CreateEvent = () => {
     const [location, setLocation] = useState("");
     const navigate = useNavigate();
 
+    console.log("Rendering CreateEvent Component");
+
     const handleCreateEvent = async (e) => {
         e.preventDefault();
         try {
             const token = localStorage.getItem("token");
-            if (!token) return alert("You must be logged in!");
+            if (!token) {
+                alert("You must be logged in to create an event.");
+                return navigate("/login");
+            }
+
+            console.log("Sending Request:", { name, description, date, location });
 
             await axios.post(
                 "https://event-management-backend-o93a.onrender.com/api/events",
                 { name, description, date, location },
-                { headers: { Authorization: `Bearer ${token}` } }
+                { headers: { Authorization: `${token}` } }
             );
 
             alert("Event Created Successfully!");
-            navigate("/");
+            navigate("/dashboard");
         } catch (err) {
-            alert("Error creating event");
+            console.error("Error creating event:", err);
+            alert("Error creating event.");
         }
     };
 
