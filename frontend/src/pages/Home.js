@@ -7,7 +7,8 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("https://event-management-backend-o93a.onrender.com/api/events")
+    axios.get(`${process.env.REACT_APP_API_URL}/api/events`
+  )
       .then((response) => {
         setEvents(response.data);
         setLoading(false);

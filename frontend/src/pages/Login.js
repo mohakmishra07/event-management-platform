@@ -13,7 +13,8 @@ const Login = () => {
     setError("");
 
     try {
-      const response = await axios.post("https://event-management-backend-o93a.onrender.com/api/auth/login", {
+      const response = axios.post(`${process.env.REACT_APP_API_URL}/api/auth/login`, {
+
         email,
         password,
       });
