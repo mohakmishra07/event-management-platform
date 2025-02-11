@@ -15,14 +15,18 @@ const Login = () => {
                 email,
                 password,
             });
-
-            // Store token in localStorage
+            
             localStorage.setItem("token", res.data.token);
             alert("Login Successful!");
-            navigate("/dashboard"); // Redirect to dashboard
+            navigate("/dashboard"); 
         } catch (err) {
             setError("Invalid credentials");
         }
+    };
+
+    const handleGuestLogin = () => {
+        localStorage.setItem("token", "guest");
+        navigate("/dashboard"); 
     };
 
     return (
@@ -39,6 +43,7 @@ const Login = () => {
                     <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
                 </div>
                 <button type="submit" className="btn btn-primary">Login</button>
+                <button type="button" className="btn btn-secondary ms-2" onClick={handleGuestLogin}>Guest Login</button>
             </form>
         </div>
     );

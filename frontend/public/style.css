@@ -1,0 +1,52 @@
+/* Reset some basic elements */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif; /* You can choose the font that fits your design */
+}
+
+/* Ensure container uses all available horizontal space in small devices */
+.container {
+    width: 95%;
+    margin: auto;
+}
+
+/* Responsive adjustments */
+@media (min-width: 768px) { /* Adjust for tablets and above */
+    .container {
+        width: 75%; /* More screen space can be used more effectively */
+    }
+}
+
+@media (min-width: 992px) { /* Adjust for desktops */
+    .container {
+        width: 60%; /* Ideal for wider screens */
+    }
+}
+
+/* Add more specific styles as needed */
+nav ul {
+    margin: 0;
+    padding: 0;
+    background-color: #333;
+    overflow: hidden;
+    color: white;
+    text-align: center;
+  }
+  
+  nav ul li {
+    display: inline;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: white;
+    padding: 14px 20px;
+    display: inline-block;
+  }
+  
+  nav ul li a:hover {
+    background-color: #ddd;
+    color: black;
+  }
+  
