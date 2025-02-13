@@ -23,7 +23,10 @@ const Navbar = () => {
                             <button className="btn btn-danger" onClick={handleLogout}>Logout</button>
                         </>
                     ) : (
-                        <Link className="nav-link" to="/login">Login</Link>
+                        <>
+                            <Link className="nav-link" to="/login">Login</Link>
+                            <Link className="nav-link" to="/signup">Signup</Link>
+                        </>
                     )}
                 </div>
             </div>

@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { io } from "socket.io-client";
 
-const socket = io("https://event-management-backend-o93a.onrender.com"); 
+// Initialize the socket connection to the backend server.
+const socket = io(`${process.env.REACT_APP_API_URL}`); 
 
 const Dashboard = () => {
     const [events, setEvents] = useState([]);
@@ -16,8 +17,8 @@ const Dashboard = () => {
                 }
     
                 console.log("Fetching events...");
-                const res = await axios.get("https://event-management-backend-o93a.onrender.com", {
-                    headers: { Authorization: `Bearer ${token}` },
+                const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/events`, { 
+                    headers: { Authorization: `Bearer ${token}` }, 
                 });
     
                 console.log("Events received:", res.data);

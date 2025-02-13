@@ -11,7 +11,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const res = await axios.post("https://event-management-backend-o93a.onrender.com/api/auth/login", {
+            const res = await axios.post(`${process.env.REACT_APP_API_URL}/api/login`, {
                 email,
                 password,
             });

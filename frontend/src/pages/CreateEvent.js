@@ -23,9 +23,9 @@ const CreateEvent = () => {
             console.log("Sending Request:", { name, description, date, location });
 
             await axios.post(
-                "https://event-management-backend-o93a.onrender.com/api/events",
+                `${process.env.REACT_APP_API_URL}/api/events`,
                 { name, description, date, location },
-                { headers: { Authorization: `${token}` } }
+                { headers: { Authorization: `Bearer ${token}` } }
             );
 
             alert("Event Created Successfully!");
